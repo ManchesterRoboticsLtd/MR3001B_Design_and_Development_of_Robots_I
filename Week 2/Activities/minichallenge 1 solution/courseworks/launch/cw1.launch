@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<launch>
+    <node name="signal_generator" pkg="courseworks" type="signal_generator.py" output="screen" launch-prefix="gnome-terminal --command"/>
+    <node name="process" pkg="courseworks" type="process.py" output="screen" launch-prefix="gnome-terminal --command" />
+
+    <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen"  args="/signal /proc_signal"/>
+</launch>
