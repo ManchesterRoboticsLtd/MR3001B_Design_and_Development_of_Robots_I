@@ -11,39 +11,22 @@
 </picture>
 
 ---
-# Week 1: Presentations.
+# Week 2: Presentations.
 
   * In this folder you will find the presentation used during this course
   * The order of the presentations is as follows
   
-  1. MCR2_Introduction
-  2. MCR2_VM_ROS
-  3. MCR2_ROS_Introduction
+  1. MCR2_ROS_Introduction_Practicalities
+  2. MCR2_RVIZ_V2
+
 
 ---
   ## Presentations
   
-   ### MCR2_Introduction
-   In this presentation you will see a brief story of our company, who we are? where do we come from? what are our mission and values?
-   and how are we trying to make a change?
-   * [Manchester Robotics](https://manchester-robotics.com/)
+   ### MCR2_ROS_Introduction_Practicalities
+   In this presentation an introduction to several ROS tools such as namespaces, and parameters and their applications is given. 
    
    
-   ### MCR2_VM_ROS
-   This presentation shows instructions on how to install Ubuntu, ROS and how to use our virtual machine (VM).
-   * [Install Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
-   * [Ubuntu 18.04](https://releases.ubuntu.com/18.04/)
-   * [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
-   * [VM Ware](https://drive.google.com/file/d/1Kqt8E69nB5pxYzyVztyoxF0UY9yCHLns/view)
-   * [MCR2 Virtual Machine](https://drive.google.com/file/d/1LCn433uN5pf8dcauWDagKEKjORsE3fZR/view)
+   ### MCR2_RVIZ_V2
+   This presentation shows the functionality of RVIZ and the ROS Transforms.
    
-   
-   
-   
-   ### MCR2_ROS_Introduction
-   This presentation introduces the student to the ROS environment system. This presentation shows the basics of ROS alongside some basic activities designed for the student to learn he basic concepts of ROS.
-   * [Catkin_WS](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
-   * [Create a package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
-   * [Bashrc File](https://answers.ros.org/question/117801/how-to-get-the-line-source-develsetupbash-to-run-after-every-time-you-catkin_make/)
-
-
