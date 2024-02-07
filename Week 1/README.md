@@ -11,7 +11,7 @@
 </picture>
 
 ---
-# MR3001C MR3001B Design and Development of Robots I_1
+# MR3001C MR3001B Design and Development of Robots I
 
   ## Session
   * In this session, we introduce Manchester Robotics Ltd.
