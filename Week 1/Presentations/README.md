@@ -19,6 +19,7 @@
   1. MCR2_Introduction
   2. MCR2_VM_ROS
   3. MCR2_ROS_Introduction
+  4. MCR2_Robotics_Introduction
 
 ---
   ## Presentations
@@ -43,5 +44,9 @@
    * [Catkin_WS](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
    * [Create a package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
    * [Bashrc File](https://answers.ros.org/question/117801/how-to-get-the-line-source-develsetupbash-to-run-after-every-time-you-catkin_make/)
+
+  ### MCR2_ROS_Introduction
+   This presentation introduces the student to the orld of robotics.
+
 
 
