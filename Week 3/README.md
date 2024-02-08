@@ -57,7 +57,11 @@ alt="ROS Basics" width="300" border="10"/></p></a>
 
 ### Useful Links: 
 #### Ubuntu
-  * [Ubuntu Installation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+* [Ubuntu Installation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+
+#### Robotics
+* [PID Control](https://ieeexplore.ieee.org/document/1453566)
+* [Closed Loop Control](https://www.electronics-tutorials.ws/systems/closed-loop-system.html)
 
 #### ROS
  * [ROS Transforms Tutorials](http://wiki.ros.org/tf2/Tutorials)
