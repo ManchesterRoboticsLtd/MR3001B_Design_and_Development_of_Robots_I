@@ -1,29 +1,31 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001C_Cyber-Physical_Systems_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Bco_Transparente.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001C_Cyber-Physical_Systems_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Azul%20transparente.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Bco_Transparente.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Azul%20transparente.png">
   <img alt="Shows ITESM logo in black or white." width="160" align="right">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001C_Cyber-Physical_Systems_I/blob/main/Misc/Logos/MCR2_Logo_White.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001C_Cyber-Physical_Systems_I/blob/main/Misc/Logos/MCR2_Logo_Black.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/MCR2_Logo_White.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/MCR2_Logo_Black.png">
   <img alt="Shows MCR2 logo in black or white." width="150" align="right">
 </picture>
 
 ---
-# MR3001C Cyber-Physical Systems I
+# MR3001B Design and Development of Robots I
 
   ## Session
-  * In this session, we introduce Cyber-Physical Systems Manchester Robotics Ltd.
-  * Who are we?
-  * Introduction to robotics.
-  * A small introduction to Ubuntu, how to use it? and some tips are presented.
-  * Troubleshooting, tips, and tricks on installing Ubuntu and ROS are provided.
-  * In this session, we introduce the basic concepts of ROS, such as ROS Master, Topics, Nodes, Launch files, etc.
+  * This session is intended for the students to learn some of ROS tools that will be required in the following sessions, such as Transforms, .
+  * Introduction to namespaces.
+  * Introduction to parameters.
+  * RVIZ
+  * Static and Dynamic Transforms
   * The activities and examples done during the class are located in the folder Activities.
 
+
+  ### << This session contains some "follow-me" activities, we encourage the students to bring their laptop with Ubuntu and ROS (Noetic) installed or hte MCR2 VM during the session >>
+
   ## Mini Challenge
-  * Mini Challenge Create a "signal_generator" and "process" nodes and plot the results.
+  * Show a simple mobile robot in RVIZ using markers and TF. 
   * The mini challenge and further instructions for this session are located in the folder Challenge. 
 
   
@@ -61,6 +63,9 @@ alt="ROS Basics" width="300" border="10"/></p></a>
   * [Ubuntu Installation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 
 #### ROS
+ * [Custom Messages](http://wiki.ros.org/ROS/Tutorials/CustomMessagePublisherSubscriber%28python%29)
+ * [Define Custom Messages](http://wiki.ros.org/ROS/Tutorials/DefiningCustomMessages)
+ * [Messages and Services](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)
  * [ROS Installation](http://wiki.ros.org/noetic/Installation/Ubuntu)
  * [ROS book](https://www.cse.sc.edu/~jokane/agitr/)
  * [ROS Packages](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)

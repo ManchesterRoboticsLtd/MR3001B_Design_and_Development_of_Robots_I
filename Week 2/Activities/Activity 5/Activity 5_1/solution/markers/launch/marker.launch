@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+    <node name="marker" pkg="markers" type="marker.py" output="screen"/> 
+    <!-- static_transform_publisher x y z yaw pitch roll frame_id child_frame_id -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="link1" args="2  1   1   3.1416  0   0   sun   link1"/>
+</launch>

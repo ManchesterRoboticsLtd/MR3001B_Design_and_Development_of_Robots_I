@@ -22,6 +22,8 @@
   * This week, we introduce the basic concepts of ROS, such as ROS Master, Topics, Nodes, Launch files, etc.
   * The activities and examples done during the class are located in the folder Activities.
 
+  ### << This session contains some "follow-me" activities, we encourage the students to bring their laptop with Ubuntu and ROS (Noetic) installed or hte MCR2 VM during the session >>
+
   ## Mini Challenge
   * Mini Challenge Create a "signal_generator" and "process" nodes and plot the results.
   * The mini challenge and further instructions for this session are located in the folder Challenge. 
