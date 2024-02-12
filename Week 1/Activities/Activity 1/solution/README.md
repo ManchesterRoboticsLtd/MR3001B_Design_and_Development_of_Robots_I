@@ -1,17 +1,18 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Bco_Transparente.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Azul%20transparente.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/TE3003B_CADI_Tec_de_Monterrey/blob/main/Misc/Logos/Logotipo%20Vertical%20Bco_Transparente.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/TE3003B_CADI_Tec_de_Monterrey/blob/main/Misc/Logos/Logotipo%20Vertical%20Azul%20transparente.png">
   <img alt="Shows ITESM logo in black or white." width="160" align="right">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/MCR2_Logo_White.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/MCR2_Logo_Black.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/TE3003B_CADI_Tec_de_Monterrey/blob/main/Misc/Logos/MCR2_Logo_White.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/TE3003B_CADI_Tec_de_Monterrey/blob/main/Misc/Logos/MCR2_Logo_Black.png">
   <img alt="Shows MCR2 logo in black or white." width="150" align="right">
 </picture>
 
 ---
-# Week 1: Activities and Examples
+
+# Activity 1
 
 In this folder, the student will find the files containing the solution for Activity 1.
 ### << We Encourage the students to NOT USE the files and follow the instructions during class and in the presentation to make this activity !! >>
@@ -21,7 +22,7 @@ In this folder, the student will find the files containing the solution for Acti
 * ROS installed
 * Compile the files using catkin_make from terminal (from the catkin_ws folder)
 
-## Activity 1 : Creating a Talker and Listener Nodes
+## Activity 1.1 : Creating a Talker and Listener Nodes
 
 <p align="center"><img src="https://user-images.githubusercontent.com/67285979/206562180-f12c6968-4585-405a-ba0d-9ef271c0b014.png" 
 alt="ROS Basics" width="450" border="10"/></p>
@@ -49,7 +50,7 @@ rostopic pub /chatter <tab complete>
  chmod +x listener.py
 ```
 
-## Activity 2
+## Activity 1.2
 * Create a folder named *launch* inside the package *basic_comms*
 * Create a *roslaunch* file i.e., *activity1.launch* for the previous nodes.
 * Edit the code inside the file as shown in the presentation or in the *activity1.launch* file inside the folder *basic_comms* 
