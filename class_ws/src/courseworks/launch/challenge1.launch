@@ -1,0 +1,11 @@
+<!-- Lauch file to launch both nodes and display in rqt_plot -->
+
+<launch>
+    <arg name="phase_shift" default="0" />
+    <node pkg="courseworks" type="signal_generator" name="signal_generator" output="screen"/>
+    <node pkg="courseworks" type="process.py" name="process" output="screen">
+        <param name="phase_shift" value="$(arg phase_shift)"/>
+    </node>
+    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" args="/signal/data /proc_signal/data"/>
+
+</launch>
