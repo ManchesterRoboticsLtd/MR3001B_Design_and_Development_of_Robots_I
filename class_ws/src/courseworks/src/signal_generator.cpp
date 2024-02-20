@@ -20,7 +20,7 @@ int main(int argc, char **argv){
         pub_signal.publish(msg_signal);
         pub_time.publish(msg_time);
 
-        //ROS_INFO("Signal: %f, Time: %f", msg_signal.data, msg_time.data);
+        ROS_INFO("Signal: %f, Time: %f", msg_signal.data, msg_time.data);
 
         time += 0.1;
         loop_rate.sleep();

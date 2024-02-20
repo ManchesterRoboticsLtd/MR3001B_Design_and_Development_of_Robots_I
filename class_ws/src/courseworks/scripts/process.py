@@ -33,4 +33,4 @@ if __name__ == '__main__':
         msg_proc_signal.data = (1/2) * math.sin(c_time + phase_shift) + 1 
         pub.publish(msg_proc_signal)
         rate.sleep()
-        #rospy.loginfo("Processed Signal: %f", msg_proc_signal.data)
+        rospy.loginfo("Processed Signal: %f", msg_proc_signal.data)
