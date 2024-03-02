@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<robot name="steren">
+
+    <link name="world" />
+
+    <link name="link1" >
+    </link>
+
+    <link name="link2" >
+    </link>
+    
+    <link name="link3" />
+    
+    <link name="link4" />
+
+    <joint name="joint1" type="revolute">
+        <parent link="world"/>
+        <child link="link1"/>
+        <origin rpy="0 0 0" xyz="0 0 0.07"/>
+        <limit effort="1000" lower="-1.56" upper="1.56" velocity="10"/>
+    </joint>
+
+    <joint name="joint2" type="revolute">
+        <parent link="link1"/>
+        <child link="link2"/>
+        <axis xyz="1 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0.093"/>
+        <limit effort="1000" lower="-1.56" upper="1.56" velocity="10"/>
+    </joint>
+    
+    <joint name="joint3" type="revolute">
+        <parent link="link2"/>
+        <child link="link3"/>
+        <axis xyz="1 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0.115"/>
+        <limit effort="1000" lower="-1.56" upper="1.56" velocity="10"/>
+    </joint>
+
+    <joint name="joint4" type="revolute">
+        <parent link="link3"/>
+        <child link="link4"/>
+        <axis xyz="0 1 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0.085"/>\
+        <limit effort="1000" lower="-1.56" upper="1.56" velocity="10"/>
+    </joint>
+
+</robot>
