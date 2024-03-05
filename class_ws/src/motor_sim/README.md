@@ -21,7 +21,7 @@ By [afr2903](https://github.com/afr2903/)
 By running:
 The following command will launch the dedidcated file for joint state publisher
 ```bash
-roslaunch motor_sim motor_sim.launch _frequency:=2
+roslaunch motor_sim motor_sim.launch
 ```
 
 This will start the `motor_sim` nodes, display the URDF and models in RViz, open `rqt_plot` for the input and output of the motor, and an additional GUI to test different motor inputs.
