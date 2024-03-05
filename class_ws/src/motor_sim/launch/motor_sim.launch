@@ -7,6 +7,18 @@
     <!--Initialise motor dynamical simulation-->
     <node pkg="motor_sim" type="motor_sim.py" name="motor_Sim" />
 
+    <!--Initialise motor joint publisher-->
+    <node pkg="motor_sim" type="motor_JointPub.py" name="motor_JointPub" />
+
+    <!--Motor controller and setpoint generator-->
+    <arg name="frequency" default="1.0" />
+    <arg name="amplitude" default="1.0" />
+    <node pkg="motor_sim" type="set_point_generator.py" name="set_point_generator" output="screen">
+        <param name="frequency" value="$(arg frequency)"/>
+        <param name="amplitude" value="$(arg amplitude)"/>
+    </node>
+
+    <!--<node pkg="motor_sim" type="pid_control.py" name="pid_control" output="screen"/>-->
 
     <!--Initialise rqt_plot Visualiser -->
     <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen"  args="/motor_input /motor_output"/>
