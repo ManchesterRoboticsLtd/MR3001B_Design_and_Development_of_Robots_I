@@ -4,15 +4,49 @@
 
     <link name="world" />
 
-    <link name="link1" >
+    <link name="link1">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
     </link>
 
     <link name="link2" >
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
     </link>
     
-    <link name="link3" />
+    <link name="link3">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
     
-    <link name="link4" />
+    <link name="link4">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
 
     <joint name="joint1" type="revolute">
         <parent link="world"/>
