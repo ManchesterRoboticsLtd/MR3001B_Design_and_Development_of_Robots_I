@@ -32,7 +32,7 @@ This will start the `motor_sim` nodes, display the URDF and models in RViz, open
 
 To run the main launch file:
 ```bash
-roslaunch motor_sim motor_sim.launch _frequency:=2
+roslaunch motor_sim motor_sim.launch frequency:=0.1 amplitude:=5
 ```
 
 This will launch all the nodes developed and the DC Motor in RViz will start moving.

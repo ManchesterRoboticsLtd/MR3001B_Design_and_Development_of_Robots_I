@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
+    <arg name="frequency" default="0.2" />
+    <arg name="amplitude" default="1.0" />
+
     <!-- Load Parameters-->
     <rosparam file = "$(find motor_sim)/config/params.yaml" command = "load" /> 
 
@@ -11,14 +14,12 @@
     <node pkg="motor_sim" type="motor_JointPub.py" name="motor_JointPub" />
 
     <!--Motor controller and setpoint generator-->
-    <arg name="frequency" default="1.0" />
-    <arg name="amplitude" default="1.0" />
     <node pkg="motor_sim" type="set_point_generator.py" name="set_point_generator" output="screen">
         <param name="frequency" value="$(arg frequency)"/>
         <param name="amplitude" value="$(arg amplitude)"/>
     </node>
 
-    <!--<node pkg="motor_sim" type="pid_control.py" name="pid_control" output="screen"/>-->
+    <node pkg="motor_sim" type="pid_control.py" name="pid_control" output="screen"/>
 
     <!--Initialise rqt_plot Visualiser -->
     <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen"  args="/motor_input /motor_output"/>
@@ -27,7 +28,7 @@
     <arg name="motor_sim_urdf" default="$(find motor_sim)/urdf/dc_motor.urdf" />
     <param name="robot_description" command="cat $(arg motor_sim_urdf)" />
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="motor_sim_state"/>
-    <!--<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"></node>-->
+    <!--<node name="joint_state_publisher_gui" pkg="joint_state_publis<her_gui" type="joint_state_publisher_gui"></node>-->
 
     <arg name="rvizconfig" default="$(find motor_sim)/rviz/motor.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(arg rvizconfig)" />
