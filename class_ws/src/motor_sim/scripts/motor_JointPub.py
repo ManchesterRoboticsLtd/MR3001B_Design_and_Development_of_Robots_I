@@ -9,18 +9,13 @@ from sensor_msgs.msg import JointState
 
 #Declare Variables/Parameters to be used
 
-#Define callback functions (if required)
-def motor_output_callback(msg):
-    #Do something with the message received
-    pass
 
-#Define other functions (if required)
-
+# Main class
 class MotorJointTransformer:
     def __init__(self):
         #Initialise and Setup node
         rospy.init_node("DC_MotorJoints")
-        self.loop_rate = rospy.Rate(10)
+        self.loop_rate = rospy.Rate(100)
 
         #Variables/Parameters to be used
         self.motor_rpms = 0.0
@@ -36,7 +31,9 @@ class MotorJointTransformer:
         ## Assuming the motor_output is in rpm
         self.sub_motor_output = rospy.Subscriber('/motor_output', Float32, self.motor_output_callback)
         self.pub_joint_states = rospy.Publisher('/joint_states', JointState, queue_size=1)
+        self.pub_wheel_angle = rospy.Publisher('/wheel_angle', Float32, queue_size=1)
 
+    # Motor output callback
     def motor_output_callback(self, msg):
         self.motor_rpms = msg.data
 
@@ -63,7 +60,8 @@ class MotorJointTransformer:
         self.last_time = rospy.Time.now().to_sec()
 
         self.wheel_angle += self.rpms_to_angle() * dt
-        rospy.loginfo(f"Wheel Angle: {self.wheel_angle} rad")
+        self.pub_wheel_angle.publish(self.wheel_angle)
+        #rospy.loginfo(f"Wheel Angle: {self.wheel_angle} rad")
 
         # Update and publish joints
         self.joint_states.header.stamp = rospy.Time.now()
@@ -71,7 +69,6 @@ class MotorJointTransformer:
         self.pub_joint_states.publish(self.joint_states)
 
         self.loop_rate.sleep()
-
 
 
 if __name__=='__main__':

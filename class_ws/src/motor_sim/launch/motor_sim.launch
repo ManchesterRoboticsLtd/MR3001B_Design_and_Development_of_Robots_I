@@ -7,6 +7,7 @@
     <!--Initialise motor dynamical simulation-->
     <node pkg="motor_sim" type="motor_sim.py" name="motor_Sim" />
 
+
     <!--Initialise rqt_plot Visualiser -->
     <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen"  args="/motor_input /motor_output"/>
 
@@ -14,7 +15,7 @@
     <arg name="motor_sim_urdf" default="$(find motor_sim)/urdf/dc_motor.urdf" />
     <param name="robot_description" command="cat $(arg motor_sim_urdf)" />
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="motor_sim_state"/>
-    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"></node>
+    <!--<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"></node>-->
 
     <arg name="rvizconfig" default="$(find motor_sim)/rviz/motor.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(arg rvizconfig)" />
