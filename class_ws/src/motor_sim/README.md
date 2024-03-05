@@ -26,7 +26,7 @@ roslaunch motor_sim motor_sim.launch _frequency:=2
 
 This will start the `motor_sim` nodes, display the URDF and models in RViz, open `rqt_plot` for the input and output of the motor, and an additional GUI to test different motor inputs.
 
-
+[Screencast from 05-03-24 10:24:58.webm](https://github.com/afr2903/MR3001B_Design_and_Development_of_Robots_I/assets/25570636/5595c0ab-6dcf-4559-9720-2f5bb09ff0ba)
 
 ### PID Controller and setpoint generator (Part 2)
 
