@@ -9,11 +9,26 @@ By [afr2903](https://github.com/afr2903/)
 
 - URDF file of DC Motor 
 - Joint State publisher node for movement of the wheel
+- Motor input GUI
 - Sinusoidal setpoint generator
 - PID controller node 
 - Launch file with customizable parameters, RViz and RQT plots
 
 ## Execution
+
+### Wheel joint state publisher (Part 1)
+
+By running:
+The following command will launch the dedidcated file for joint state publisher
+```bash
+roslaunch motor_sim motor_sim.launch _frequency:=2
+```
+
+This will start the `motor_sim` nodes, display the URDF and models in RViz, open `rqt_plot` for the input and output of the motor, and an additional GUI to test different motor inputs.
+
+
+
+### PID Controller and setpoint generator (Part 2)
 
 To run the main launch file:
 ```bash
@@ -24,11 +39,13 @@ This will launch all the nodes developed and the DC Motor in RViz will start mov
 
 Run `rqt_graph` to watch the node architecture.
 
-## URDF File
+## Features breakdown
+
+### URDF File
 
 The `motor_wheel` joint was tagged as `continuous` as it can rotate infinitely.
 
-## Wheel joint state publisher node
+### Wheel joint state publisher node
 
 To simulate the wheel movement in RViz, equal to the `/motor_output` topic, a conversion of units from RPMs to Radians was created and sent to the joint state.
 
@@ -36,13 +53,13 @@ This python node uses a `Class` structure to manage the callbacks and methods.
 
 **Important consideration:** To achieve a smooth wheel rotation, the `Rate()` of the node needs to be high, as the `TF` package needs to update constantly. A rate of 100 hz was used. Additionally, the `joint_state_publisher_gui` should be commented in the launch file as it interferes with this node's publisher
 
-## Setpoint generator
+### Setpoint generator
 
 Simulates a sinusoidal wave, using python `math` library.
 
 The node can receive the params `amplitude` and `frequency` in its single node execution (`rosrun`) or in the launch file.
 
-## PID Controller
+### PID Controller
 
 Simple PID Controller:
 `output = kP * error + kI * integral + kD * derivative`
