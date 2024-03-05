@@ -18,7 +18,7 @@ class MotorJointTransformer:
         self.loop_rate = rospy.Rate(100)
 
         #Variables/Parameters to be used
-        self.motor_rpms = 0.0
+        self.motor_rads = 0.0
         self.wheel_angle = 0.0
         self.joint_states = JointState()
 
@@ -28,14 +28,13 @@ class MotorJointTransformer:
         self.init_joint_state()
 
         #Setup Publishers and Subscribers
-        ## Assuming the motor_output is in rpm
         self.sub_motor_output = rospy.Subscriber('/motor_output', Float32, self.motor_output_callback)
         self.pub_joint_states = rospy.Publisher('/joint_states', JointState, queue_size=1)
         self.pub_wheel_angle = rospy.Publisher('/wheel_angle', Float32, queue_size=1)
 
-    # Motor output callback
+    # Motor output callback in rad/s
     def motor_output_callback(self, msg):
-        self.motor_rpms = msg.data
+        self.motor_rads = msg.data
 
     def init_joint_state(self):
         self.joint_states.header.frame_id = "Motor"
@@ -51,15 +50,11 @@ class MotorJointTransformer:
             result += 2 * 3.14159
         return result - 3.14159
     
-    # Returns incremental angle of the wheel (rad/s)
-    def rpms_to_angle(self):
-        return self.motor_rpms / 60.0 * 2 * 3.14159
-
     def run(self):
         dt = rospy.Time.now().to_sec() - self.last_time
         self.last_time = rospy.Time.now().to_sec()
 
-        self.wheel_angle += self.rpms_to_angle() * dt
+        self.wheel_angle += self.motor_rads * dt
         self.pub_wheel_angle.publish(self.wheel_angle)
         #rospy.loginfo(f"Wheel Angle: {self.wheel_angle} rad")
 
