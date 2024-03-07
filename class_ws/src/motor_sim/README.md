@@ -34,6 +34,8 @@ To run the main launch file:
 ```bash
 roslaunch motor_sim motor_sim.launch frequency:=0.1 amplitude:=5
 ```
+- `frequency:` The rate of change of the wave.
+- `amplitude:` The positive and negative output (rad/s) desired.
 
 This will launch all the nodes developed and the DC Motor in RViz will start moving.
 

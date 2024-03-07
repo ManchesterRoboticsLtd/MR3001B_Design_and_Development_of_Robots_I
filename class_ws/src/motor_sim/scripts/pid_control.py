@@ -22,9 +22,9 @@ class Controller:
         self.sample_time = rospy.get_param("~sample_time",0.01)
 
         # Variables/Parameters to be used
-        self.kP = rospy.get_param("~kP",1.0)
-        self.kI = rospy.get_param("~kI",0.0)
-        self.kD = rospy.get_param("~kD",0.0)
+        self.kP = rospy.get_param("~kP",3)
+        self.kI = rospy.get_param("~kI",0)
+        self.kD = rospy.get_param("~kD",0)
 
         self.setpoint = 0.0
         self.feedback = 0.0
