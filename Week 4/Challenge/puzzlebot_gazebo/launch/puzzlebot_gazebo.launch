@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <launch>
+
+        <!--Puzzlebot Parameters-->
+        <arg name="robot_name" default="puzzlebot_1"/>
+        <arg name="robot_description_file" default="puzzlebot_hacker_ed_v1_3.xacro"/>
+        <arg name="pos_x" default="-2.0"/>
+        <arg name="pos_y" default="-2.0"/>
+        <arg name="pos_theta" default="0.0"/>
+
+        <!-- Gazebo Parameters -->
+        <arg name="world_name" default="$(find puzzlebot_gazebo)/worlds/puzzlebot_arena_markers.world"/>
+        <arg name="paused" default="false"/>
+        <arg name="use_sim_time" default="true"/>
+        <arg name="gui" default="true"/>
+        <arg name="headless" default="false"/>
+        <arg name="debug" default="false"/>
+
+        <!-- Launch Gazebo -->
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+            <arg name="world_name" value="$(arg world_name)"/>
+            <arg name="debug" value="$(arg debug)" />
+            <arg name="gui" value="$(arg gui)" />
+            <arg name="paused" value="$(arg paused)"/>
+            <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+            <arg name="headless" value="$(arg headless)"/>
+            <arg name="extra_gazebo_args" value="--lockstep"/>
+        </include>
+
+         <!-- Launch Puzzlebot -->
+        <include file="$(find puzzlebot_gazebo)/launch/puzzlebot_spawner.launch">
+            <arg name="robot" value="$(arg robot_name)"/>
+            <arg name="robot_description_file" value="$(arg robot_description_file)"/>
+            <arg name="x" value="$(arg pos_x)"/>
+            <arg name="y" value="$(arg pos_y)"/>
+            <arg name="yaw" value="$(arg pos_theta)"/>
+        </include>
+
+    </launch>
