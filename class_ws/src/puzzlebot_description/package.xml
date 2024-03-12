@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>puzzlebot_description</name>
+  <version>0.0.0</version>
+  <description>The puzzlebot_description package</description>
+
+  <maintainer email="mario.mtz@manchester-robotics.com">Mario Martinez</maintainer>
+  <author email="mario.mtz@manchester-robotics.com">Mario Martinez</author> 
+  <license>BSDv3</license>
+
+
+  <!-- Url tags are optional, but multiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <!-- Example: -->
+  <url type="website">https://github.com/ManchesterRoboticsLtd/Puzzlebot</url>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>joint_state_publisher</build_depend>
+  <build_depend>joint_state_publisher_gui</build_depend>
+  <build_depend>robot_state_publisher</build_depend>
+  <build_depend>rviz</build_depend>
+  <build_export_depend>joint_state_publisher</build_export_depend>
+  <build_export_depend>joint_state_publisher_gui</build_export_depend>
+  <build_export_depend>robot_state_publisher</build_export_depend>
+  <build_export_depend>rviz</build_export_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
