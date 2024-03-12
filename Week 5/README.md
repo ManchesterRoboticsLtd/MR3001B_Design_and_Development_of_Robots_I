@@ -14,18 +14,16 @@
 # MR3001C MR3001B Design and Development of Robots I
 
   ## Session
-  * This session intends for the students to learn about the difference between simulator environments, state-space theory that will be used in the next sessions, and develop a simple dynamical simulation using the knowledge of the previous sessions.
+  * This session intends for the students to learn about closed-loop control for mobile robotic platforms
 
 ### << This session contains some "follow-me" activities; we encourage the students to bring their laptop with Ubuntu and ROS (Noetic) installed or hte MCR2 VM during the session >>
 
   ## Session
-  * Review of previous sessions
-  * Dynamical simulators
-  * State Space Theory
+  * Closed Loop Control
   * Mobile Robot Dynamics
 
   ## Mini Challenge
-  * Develop a Dashgo B1 Robot Nonholonomic Dynamic simulator using URDF Files.
+  * Develop a Closed loop controller for the Dashgo B1 Robot.
   * The mini challenge and further instructions for this session are located in the folder Challenge. 
 
   
@@ -83,6 +81,10 @@ https://www.youtube.com/watch?v=vBDHNeUKEYU
 * [Dynamic Model of a Differential Drive Robot](https://www.hilarispublisher.com/open-access/dynamic-modelling-of-differentialdrive-mobile-robots-using-lagrange-and-newtoneuler-methodologies-a-unified-framework-2168-9695.1000107.pdf)
 * [Kinematic Model of Differential Drive Robot](https://globaljournals.org/GJRE_Volume14/1-Kinematics-Localization-and-Control.pdf)
 * [Introduction to Autonomous Mobile Robots](https://ieeexplore.ieee.org/book/6267528)
+* [Introduction to Autonomous Mobile Robots](https://ieeexplore.ieee.org/book/6267528)
+* [PID Control](https://ieeexplore.ieee.org/document/1453566)
+* [Closed Loop Control](https://www.electronics-tutorials.ws/systems/closed-loop-system.html)
+* [Nonlineraities and robustness](https://ieeexplore.ieee.org/document/8603065)
 
 #### Ubuntu
   * [Ubuntu Installation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
