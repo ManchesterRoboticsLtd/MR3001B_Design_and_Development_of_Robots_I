@@ -76,3 +76,5 @@ The following states were defined:
 - **MOVE:** Indicates the robot to move for `target_distance_time` at a speed of `target_linear_velocity`.
 
 For the target times in each state of the whole path, it was observed that an open-loop control (based on time) it's really unreliable and unstable. In order to achieve as much precision as possible, an array with custom times for each segment of the path was created. This change turned the script less scalable for more iterations of the path. But for the purposes of the challenge, it improved the precission in reaching the waypoints in the world.
+
+[Video demonstration Puzzlebot Gazebo](https://github.com/afr2903/MR3001B_Design_and_Development_of_Robots_I/assets/25570636/b4cd25be-75d0-410d-b3fb-f8792980964d)
