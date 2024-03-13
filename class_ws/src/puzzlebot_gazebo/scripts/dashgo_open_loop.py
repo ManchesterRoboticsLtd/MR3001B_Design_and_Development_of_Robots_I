@@ -10,16 +10,16 @@ class Puzzlebot:
     def __init__(self):
         # Initialise the node 
         rospy.init_node("puzzlebot_open_loop")
-        self.loop_rate = rospy.Rate(200)
-        self.sample_time = 0.01
+        self.loop_rate = rospy.Rate(50)
+        self.sample_time = 0.1
 
         # Variables/Parameters to be used
         self.target_iterations = 4
 
         # Open Loop
-        self.target_distance_time = [6.65, 6.52, 6.35, 6.35]
-        self.target_angle_time = [3.45, 3.2, 3.12, 3.15]
-        self.target_linear_velocity = -0.6
+        self.target_distance_time = [7, 7, 7, 7]
+        self.target_angle_time = [6.5, 6.5, 6.5, 6.5]
+        self.target_linear_velocity = 0.6
         self.target_angular_velocity = -0.6
 
         # Kinematics
@@ -41,9 +41,9 @@ class Puzzlebot:
         self.current_iteration = 0
 
         # Setup Publishers and Subscribers
-        self.pub_cmd_vel = rospy.Publisher('/puzzlebot_1/base_controller/cmd_vel', Twist, queue_size=1)
-        self.sub_right_wheel = rospy.Subscriber('/puzzlebot_1/wr', Float32, self.right_wheel_callback)
-        self.sub_left_wheel = rospy.Subscriber('/puzzlebot_1/wl', Float32, self.left_wheel_callback)
+        self.pub_cmd_vel = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+        #self.sub_right_wheel = rospy.Subscriber('/puzzlebot_1/wr', Float32, self.right_wheel_callback)
+        #self.sub_left_wheel = rospy.Subscriber('/puzzlebot_1/wl', Float32, self.left_wheel_callback)
 
     # Right wheel callback in rad/s
     def right_wheel_callback(self, msg):
@@ -65,7 +65,7 @@ class Puzzlebot:
     Open-loop control for rotation
     """
     def rotate(self, dt):
-        self.angle += self.angular_velocity * dt
+        #self.angle += self.angular_velocity * dt
 
         # Check if the angle has been reached
         if rospy.Time.now().to_sec() - self.last_time > self.target_angle_time[self.current_iteration]:
@@ -83,7 +83,7 @@ class Puzzlebot:
         """
         Open-loop control for movement
         """
-        self.distance += (self.linear_velocity ) * dt
+        #self.distance += (self.linear_velocity ) * dt
 
         # Check if the distance has been reached
         if rospy.Time.now().to_sec() - self.last_time > self.target_distance_time[self.current_iteration]:
