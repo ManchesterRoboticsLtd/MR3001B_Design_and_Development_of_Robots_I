@@ -84,6 +84,6 @@ To achieve the following execution, the Gazebo simulation has to be up with `ros
 
 For the real Dashgo B1 from EAIbot, the same node was used as a template inside another script `dashgo_open_loop.py`. Only the times for the movement and rotation, as well as, the linear and angular velocities were changed. The result obtained was this:
 
-
+https://github.com/afr2903/MR3001B_Design_and_Development_of_Robots_I/assets/25570636/56509a59-da9a-4b7c-a5ac-59fb6e91307a
 
 As an observation, the `sample_time` had to be **increased** for the Dashgo to behave smoothly without sudden stops.
