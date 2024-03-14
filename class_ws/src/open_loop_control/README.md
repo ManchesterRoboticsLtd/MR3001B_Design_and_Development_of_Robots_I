@@ -5,15 +5,13 @@ By [afr2903](https://github.com/afr2903/)
 
 [Challenge instructions](https://github.com/afr2903/MR3001B_Design_and_Development_of_Robots_I/blob/main/Week%204/Challenge/)
 
-The instructions and execution were added to the `src` folder, as this challenge involves several ros packages.
-
 **Summary:** The challenge required an implementation of an open-loop controller for the Puzzlebot or the Dashgo B1, using simple diff-drive kinematics to estimate the time required for a robot to reach a certain distance.
 
 # Puzzlebot Sim
 
 ### Initial setup
 
-In order to run the initial `roslaunch` command to test the environment setup, after cloning the 3 ros packages to the `workspace`, a similar error may appear:
+In order to run the initial `roslaunch` command to test the environment setup, after cloning the 3 ros packages (`puzzlebot_control`,`puzzlebot_gazebo`,`puzzlebot_description`) to the `workspace`, a similar error may appear:
 
 ```bash
 CMake Error at /opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
@@ -66,7 +64,7 @@ By testing different inputs, and reviewing the wheels' speed output, it was foun
 
 ### Open Loop
 
-I realised the characterization is not needed for this challenge but for the next and final challenge. So in order to create an open loop controller node for the Gazebo simulation, the script `open_loop.py` was created inside the `puzzlebot_gazebo` package.
+I realised the characterization is not needed for this challenge but for the next and final challenge. So in order to create an open loop controller node for the Gazebo simulation, the script `open_loop.py` was created inside a new `open_loop_control` package.
 
 This script is structured with the main class `Puzzlebot`, containing the methods needed to execute the state machine to draw the path of a square.
 
@@ -75,6 +73,17 @@ The following states were defined:
 - **TURN:** Indicates the robot to turn for `target_angle_time` at a speed of `target_angular_velocity`.
 - **MOVE:** Indicates the robot to move for `target_distance_time` at a speed of `target_linear_velocity`.
 
-For the target times in each state of the whole path, it was observed that an open-loop control (based on time) it's really unreliable and unstable. In order to achieve as much precision as possible, an array with custom times for each segment of the path was created. This change turned the script less scalable for more iterations of the path. But for the purposes of the challenge, it improved the precission in reaching the waypoints in the world.
+For the target times in each state of the whole path, it was observed that an open-loop control (based on time) it's really unreliable and unstable. 
+In order to achieve as much precision as possible, an array with custom times for each segment of the path was created. This change turned the script less scalable for more iterations of the path. But for the purposes of the challenge, it improved the precission in reaching the waypoints in the world.
+
+To achieve the following execution, the Gazebo simulation has to be up with `roslaunch puzzlebot_gazebo puzzlebot_gazebo.launch`. Then in another terminal, the command `rosrun open_loop_control open_loop.py`, starts the node. Feedback of the completion of the states is shown:
 
 [Video demonstration Puzzlebot Gazebo](https://github.com/afr2903/MR3001B_Design_and_Development_of_Robots_I/assets/25570636/b4cd25be-75d0-410d-b3fb-f8792980964d)
+
+# Dashgo Open Loop
+
+For the real Dashgo B1 from EAIbot, the same node was used as a template inside another script `dashgo_open_loop.py`. Only the times for the movement and rotation, as well as, the linear and angular velocities were changed. The result obtained was this:
+
+
+
+As an observation, the `sample_time` had to be **increased** for the Dashgo to behave smoothly without sudden stops.
