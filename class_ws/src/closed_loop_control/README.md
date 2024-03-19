@@ -62,9 +62,11 @@ rostopic echo /puzzlebot_1/wl # or wr
 
 By testing different inputs, and reviewing the wheels' speed output, it was found the input range is `[-1, 1]` and the output range (approximately) for each wheel is `[-11.9, 11.9]`.
 
+Also, it was found that the smallest input producing a significative output was `|0.02|`.
+
 ### Square path 
 
-So in order to create an open loop controller node for the Gazebo simulation, the script `open_loop.py` was created inside a new `open_loop_control` package.
+So in order to create an open loop controller node for the Gazebo simulation, the script `closed_loop.py` was created inside this package.
 
 This script is structured with the main class `Puzzlebot`, containing the methods needed to execute the state machine to draw the path of a square.
 
@@ -77,13 +79,3 @@ For the target times in each state of the whole path, it was observed that an op
 In order to achieve as much precision as possible, an array with custom times for each segment of the path was created. This change turned the script less scalable for more iterations of the path. But for the purposes of the challenge, it improved the precission in reaching the waypoints in the world.
 
 To achieve the following execution, the Gazebo simulation has to be up with `roslaunch puzzlebot_gazebo puzzlebot_gazebo.launch`. Then in another terminal, the command `rosrun open_loop_control open_loop.py`, starts the node. Feedback of the completion of the states is shown:
-
-[Video demonstration Puzzlebot Gazebo](https://github.com/afr2903/MR3001B_Design_and_Development_of_Robots_I/assets/25570636/b4cd25be-75d0-410d-b3fb-f8792980964d)
-
-# Dashgo Open Loop
-
-For the real Dashgo B1 from EAIbot, the same node was used as a template inside another script `dashgo_open_loop.py`. Only the times for the movement and rotation, as well as, the linear and angular velocities were changed. The result obtained was this:
-
-
-
-As an observation, the `sample_time` had to be **increased** for the Dashgo to behave smoothly without sudden stops.
