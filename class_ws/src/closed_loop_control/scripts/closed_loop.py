@@ -24,13 +24,13 @@ class Puzzlebot:
 
         # Closed Loop
         self.distance_step = -1300
-        self.angle_step = -4.12
-        self.move_angle_step = -1.67
+        self.angle_step = 7.67
+        self.move_angle_step = 7.67
 
-        self.target_distance = -1500
-        self.target_angle = -4.12
+        self.target_distance = 4500
+        self.target_angle = 0
         self.move_angle = 0 # radians
-        self.distance_tolerance = 0.5
+        self.distance_tolerance = 5
         self.angle_tolerance = 0.05
 
         # Kinematics
@@ -54,16 +54,16 @@ class Puzzlebot:
 
         # PID Parameters
         self.rotation_pid = {
-            "kp": 0.15,
-            "ki": 0.005,
-            "kd": 0.001,
+            "kp": 0.015,
+            "ki": 0.0005,
+            "kd": 0.0001,
             "integral": 0.0,
             "last_error": 0.0
         }
 
         self.translation_pid = {
-            "kp": 2.0,
-            "ki": 0.005,
+            "kp": 0.2,
+            "ki": 0.0,
             "kd": 0.0,
             "integral": 0.0,
             "last_error": 0.0
@@ -114,14 +114,15 @@ class Puzzlebot:
     """
     def rotate(self, dt):
         self.angle += self.angular_velocity * dt
-        rospy.loginfo(f"Angle: {self.angle}, Vel: {self.angular_velocity}")
+        rospy.loginfo(f"Angle: {self.angle}")
 
         # Check if the angle has been reached
         if abs(self.target_angle - self.angle) < self.angle_tolerance:
-            self.current_task = self.task_states["MOVE"]
+            self.current_task = self.task_states["IDLE"]
             self.stop()
             rospy.loginfo("Rotation complete")
-            self.angle = 0.0
+            #self.angle = 0.0
+            self.rotation_pid["integral"] = 0.0
             rospy.sleep(4.0)
 
             self.last_time = rospy.Time.now().to_sec()
@@ -134,20 +135,28 @@ class Puzzlebot:
     """
     def move(self, dt):
         self.distance += (self.linear_velocity ) * dt
-        rospy.loginfo(f"Distance: {self.distance}, Vel: {self.linear_velocity}")
+        self.angle += self.angular_velocity * dt
+        rospy.loginfo(f"Angle: {self.angle} ") 
+        #rospy.loginfo(f"Distance: {self.distance}, Vel: {self.linear_velocity}")
 
         # Check if the distance has been reached
         if abs(self.target_distance - self.distance) < self.distance_tolerance:
-            self.current_task = self.task_states["IDLE"]
+            self.current_task = self.task_states["TURN"]
             self.stop()
             rospy.loginfo("Movement complete")
             self.distance = 0.0
+            #self.angle = 0.0
+            self.translation_pid["integral"] = 0.0
+            self.rotation_pid["integral"] = 0.0
+            
+            self.target_angle += self.angle_step
+            self.move_angle += self.move_angle_step
             rospy.sleep(5.0)
             
             self.current_iteration += 1
             return
         
-        self.set_twist(self.translation_control(self.target_distance - self.distance, dt), 0.0) #self.rotation_control(self.imu_angle - self.move_angle, dt))
+        self.set_twist(self.translation_control(self.target_distance - self.distance, dt), 0.05*self.rotation_control(self.move_angle - self.angle, dt))
 
     def stop(self):
         self.set_twist(0.0, 0.0)
@@ -172,8 +181,8 @@ class Puzzlebot:
             else:
                 #self.target_distance += self.distance_step
                 #self.target_angle += self.angle_step
-                self.move_angle += self.move_angle_step
-                self.current_task = self.task_states["TURN"]
+                #self.move_angle += self.move_angle_step
+                self.current_task = self.task_states["MOVE"]
                 self.last_time = rospy.Time.now().to_sec()
         
         elif self.current_task == self.task_states["TURN"]:
