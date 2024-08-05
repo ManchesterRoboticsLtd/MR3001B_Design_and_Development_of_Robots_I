@@ -1,5 +1,0 @@
-<?xml version="1.0" ?>
-<launch>
-    <node name="transforms" pkg="markers" type="tf_act.py" output="screen"/> 
-    <node name="sun" pkg="markers" type="marker.py" output="screen"/> 
-</launch>
