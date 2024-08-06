@@ -33,7 +33,7 @@ The second part of the course is dedicated to the analysis, control, and simulat
 * Start Date: 12 Febraury 2023
 
 ## Live Sessions (Recordings)
-  * TBD
+  * [Live Sessions](https://manchesterrobotics-my.sharepoint.com/:f:/g/personal/mario_mtz_manchester-robotics_com/Ek3C-dwI9jVJnyJDeTQOvJwB5tcTBHKDyS3lG4l7jhf7fQ?e=gB4ZzF) 
      
 ## General Requirements
 General requirements. Please be aware that a set of requirements specific to each session will be shown in each session subsection (Some items may be repeated).
