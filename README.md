@@ -29,8 +29,8 @@ The second part of the course is dedicated to the analysis, control, and simulat
 * Duration: 5 Weeks
 *	Student counselling: Via appointment.
 *	Classes: 10 sessions, 1 group.
-    *	Group 1: Tuesday, Wednesday and Friday, 9- 11 AM (Central Mexico Time)
-* Start Date: 12 Febraury 2023
+    *	Group 1: Monday, and Friday, 12- 3 PM (Central Mexico Time)
+* Start Date: 05 August 2023
 
 ## Live Sessions (Recordings)
   * [Live Sessions](https://manchesterrobotics-my.sharepoint.com/:f:/g/personal/mario_mtz_manchester-robotics_com/Ek3C-dwI9jVJnyJDeTQOvJwB5tcTBHKDyS3lG4l7jhf7fQ?e=gB4ZzF) 
@@ -58,12 +58,6 @@ General requirements. Please be aware that a set of requirements specific to eac
   *	Introduction to ROS
   *	Overview of ROS Environment
     *	Topics, Messages
-
- #### Session 3:
-  *	Introduction to ROS
-  *	Overview of ROS Environment
-    *	Topics, Messages
-
 
   #### Activities
 
@@ -94,10 +88,6 @@ General requirements. Please be aware that a set of requirements specific to eac
  * ROS Parameter Server
 
 #### Session 2:
-  *	RVIZ Introduction
-  * Transformations
-
- #### Session 3:
   *	RVIZ Introduction
   * Transformations
 
@@ -150,11 +140,6 @@ This week, we will introduce the concept of URDF files in the context of Robot O
 
 #### Session 2:
   * Joint State publisher
-  * Links
-
-
- #### Session 3:
-  *	Joint State publisher
   * Links
 
 
@@ -215,7 +200,6 @@ This week's curriculum will encompass the core concepts of mobile robots and sim
   * Differential Drive Basics.
   * Kinematic Model of a DDR.
   * Gazebo simulation of a DDR.
-
 
 
   #### Activities
