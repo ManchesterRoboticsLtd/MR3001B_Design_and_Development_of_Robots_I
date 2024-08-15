@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <node name="robot" pkg="simple_manipulator" type="manipulator.py" output="screen"/> 
+    
+    <arg name="rvizconfig" default="$(find simple_manipulator)/rviz/robot_rviz.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> 
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_tf" args="0 0 0 0 0 0   world   base_link"/>
+
+</launch>
