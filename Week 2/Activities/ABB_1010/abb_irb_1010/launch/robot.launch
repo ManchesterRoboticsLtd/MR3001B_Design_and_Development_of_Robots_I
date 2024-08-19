@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_tf" args="0 0 0 0 0 0   world   base_link"/>
+
+    <node name="robot" pkg="abb_irb_1010" type="abb_irb_1010.py" output="screen"/> 
+
+    <arg name="rvizconfig" default="$(find abb_irb_1010)/rviz/robot_rviz.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> 
+
+</launch>
