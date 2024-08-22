@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+
+        <!--Initialise kinematic model (YOU CAN MODIFY THIS)-->
+        <node pkg="dashgo_b1" type="nonholo_kinematic_sim.py" name="DashgoB1_Robot" >
+            <!--PRIVATE PARAMETERS HERE (IF APPLICABLE)-->
+        </node>
+
+        <!--Initialise teleoperation node (uncomment once you have installed the teleop twist keyboard)-->
+        <!--<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="Teleop" output="screen" />-->
+
+        <node pkg="tf2_ros" type="static_transform_publisher" name="world_tf" args="0 0 0 0 0 0 world odom"/>
+
+        <!-- DO NOT MODIFY THIS SECTION-->
+        <!--########################################################################## -->
+
+        <!--Initialise RVIZ -->
+        <arg name="rvizconfig" default="$(find dashgo_b1)/rviz/b1_sim.rviz" />
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> 
+
+        <!--Include the Joint and Robot State Publishers-->
+        <include file="$(find dashgo_b1)/launch/joints.launch"/>
+
+        <!--########################################################################## -->
+
+
+</launch>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+        <!-- DO NOT MODIFY THIS SECTION-->
+        <!--########################################################################## -->
+        
+        <!--Load mesh model -->
+        <arg name="EAI_sim_model" default="$(find dashgo_b1)/urdf/EAI_robot.urdf"/>
+        <param name="robot_description" command="cat $(arg EAI_sim_model)" />
+
+        <!--Robot state publisher -->
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="b1_state_pub" />
+
+        <!--Initialise joint pub node -->
+        <node pkg="dashgo_b1" type="b1_JointPub.py" name="Joint_Publisher" output="screen" >
+            <param name="wheel_radius" value="0.062"/>
+            <param name="robot_wheelbase" value="0.33"/>
+            <param name="sim_sample_time" value="0.02"/>
+            <param name="sim_node_rate" value="0.33"/>
+        </node>
+
+        <!--###########################################################################################-->
+
+
+</launch>
