@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+    <node name="signal_generator" pkg="signal_gen" type="signal_generator.py"/>
+
+    <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen"  args="/signal/data"/>
+</launch>

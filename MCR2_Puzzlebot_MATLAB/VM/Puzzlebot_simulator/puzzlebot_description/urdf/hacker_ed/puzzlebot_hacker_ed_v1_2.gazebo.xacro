@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:arg name="ground_truth" default="true" />
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+    <gazebo reference="motor_left_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="motor_right_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="powerbank_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="wheel_left_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>700000.0</kp>
+        <kd>80.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <material>Gazebo/Black</material>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="wheel_right_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>700000.0</kp>
+        <kd>80.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <material>Gazebo/Black</material>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="caster_holder_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="wheel_caster_link">
+        <mu1>0.08</mu1>
+        <mu2>0.08</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+  <gazebo>
+	<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+	    <updateRate>100</updateRate>
+	    <leftJoint>wheel_left_joint</leftJoint>
+	    <rightJoint>wheel_right_joint</rightJoint>
+	    <wheelSeparation>0.19</wheelSeparation>
+	    <wheelDiameter>0.1</wheelDiameter>
+	    <wheelAcceleration>1.8</wheelAcceleration>
+	    <wheelTorque>0.85</wheelTorque>
+	    <commandTopic>cmd_vel</commandTopic>
+	    <odometryTopic>odom</odometryTopic>
+	    <odometryFrame>odom</odometryFrame>
+	    <publishOdomTF>false</publishOdomTF>
+	    <robotBaseFrame>/puzzlebot/base_footprint</robotBaseFrame>
+	    <odometrySource>world</odometrySource>
+	    <publishTf>false</publishTf>
+	    <publishWheelTF>false</publishWheelTF>
+	    <publishOdom>false</publishOdom>
+	    <publishWheelJointState>false</publishWheelJointState>
+	    <legacyMode>false</legacyMode>
+	    <rosDebugLevel>na</rosDebugLevel>
+	  </plugin>
+	</gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+        <jointName>wheel_right_joint, wheel_left_joint</jointName>
+        <updateRate>100.0</updateRate>
+        <alwaysOn>true</alwaysOn>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="p3d_controller_ground_truth" filename="libgazebo_ros_p3d.so">
+            <alwaysOn>$(arg ground_truth)</alwaysOn>
+            <frameName>world</frameName>
+            <bodyName>base_footprint</bodyName>
+            <topicName>base_pose_ground_truth</topicName>
+            <updateRate>100.0</updateRate>
+        </plugin>
+    </gazebo>
+
+</robot>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!--Robot 1 Description-->
+  <arg name="robot" default="puzzlebot"/>
+
+  <!--Robot(puzzlebot) Initial Conditions-->
+  <arg name="initialPose_x"  default="0.0"/>
+  <arg name="initialPose_y"  default="0.0"/>
+  <arg name="initialPose_th"  default="0.0"/>
+
+  <!--Robot(puzzlebot) Parameters-->
+  <arg name="wheelBase" default="0.19"/>
+  <arg name="wheelRadius"  default="0.05"/>
+
+  <!--Robot(puzzlebot) Noise Parameters-->
+  <arg name="cov_ellipsoid"  default="1"/>    <!--Activate noise (1), deactivate noise (0)-->
+  <arg name="wheelCov_kr"  default="0.01"/>
+  <arg name="wheelCov_kl"  default="0.01"/>
+
+  <!--Simulation Parameters-->
+  <arg name="sample_time" default="0.02"/>
+  <arg name="node_rate"  default="100"/>
+    
+  <!--Initialise World - Odom  Static Transform-->
+  <!--<node pkg="tf2_ros" type="static_transform_publisher" name="world_tf" args="0 0 0 0 0 0   world   odom"/>-->
+
+  <!--Initialise kinematic_model -->
+  <node pkg="puzzlebot_control" type="localisation.py" name="puzzlebot_localisation" output="screen" >
+      <param name="node_rate" value="$(arg node_rate)"/>
+      <param name="sample_time" value="$(arg sample_time)"/>
+      <param name="wheelBase" value="$(arg wheelBase)"/>
+      <param name="wheelRadius" value="$(arg wheelRadius)"/>
+      <param name="wheelCov_kr" value="$(arg wheelCov_kr)"/>
+      <param name="wheelCov_kl" value="$(arg wheelCov_kl)"/>
+      <param name="initialPose_x" value="$(arg initialPose_x)"/>
+      <param name="initialPose_y" value="$(arg initialPose_y)"/>
+      <param name="initialPose_th" value="$(arg initialPose_th)"/>
+      <param name="cov_ellipsoid" value="$(arg cov_ellipsoid)"/>        
+  </node>
+
+  
+  <!--<node name="wheel_vel" pkg="puzzlebot_control" type="wheel_vel.py"  output="screen"/>-->
+
+</launch>

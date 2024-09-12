@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<launch>    
+
+    <!--Robot 1 Description-->
+    <arg name="robot1" value="puzzlebot_hacker_ed"/>
+    <!--Robot 2 Description-->
+    <arg name="robot2" value="puzzlebot_jetson_ed"/>
+    <!--Robot 3 Description-->
+    <arg name="robot3" value="puzzlebot_jetson_lidar_ed"/>
+
+
+    <!--Initialise World -> Odom Transform -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_odom1_tf" args="0  1   0   0   0   0  world   $(arg robot1)/base_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_odom2_tf" args="0  0   0   0   0   0  world   $(arg robot2)/base_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_odom3_tf" args="0  -1   0   0   0   0  world   $(arg robot3)/base_link"/>
+
+    <!--Load xacro model -->
+   <param name="/$(arg robot1)/robot_description" command="$(find xacro)/xacro  '$(find puzzlebot_description)/urdf/puzzlebot_hacker_ed_v1_3.xacro'"/>
+   <param name="/$(arg robot2)/robot_description" command="$(find xacro)/xacro  '$(find puzzlebot_description)/urdf/puzzlebot_jetson_ed_v1.xacro'"/>
+   <param name="/$(arg robot3)/robot_description" command="$(find xacro)/xacro  '$(find puzzlebot_description)/urdf/puzzlebot_jetson_lidar_ed_v1.xacro'"/>
+
+
+
+    <group ns="$(arg robot1)">
+        <!--Robot State Publisher -->
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="puzzlebot_state_pub" >
+            <remap from="robot_description" to="/$(arg robot1)/robot_description" />
+            <param name="tf_prefix" value="$(arg robot1)" />
+        </node>
+
+        <!-- Uncomment the Joint state publisher if not using a node to publish joint states. If uncommented, comment any node publishing joint states-->
+        <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    </group>
+
+    <group ns="$(arg robot2)">
+        <!--Robot State Publisher -->
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="puzzlebot_state_pub" >
+            <remap from="robot_description" to="/$(arg robot2)/robot_description" />
+            <param name="tf_prefix" value="$(arg robot2)" />
+        </node>
+
+        <!-- Uncomment the Joint state publisher if not using a node to publish joint states. If uncommented, comment any node publishing joint states-->
+        <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    </group>
+
+    <group ns="$(arg robot3)">
+        <!--Robot State Publisher -->
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="puzzlebot_state_pub" >
+            <remap from="robot_description" to="/$(arg robot3)/robot_description" />
+            <param name="tf_prefix" value="$(arg robot3)" />
+        </node>
+
+        <!-- Uncomment the Joint state publisher if not using a node to publish joint states. If uncommented, comment any node publishing joint states-->
+        <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    </group>
+
+    <!-- Launch rviz -->
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find puzzlebot_description)/rviz/puzzlebot_test.rviz"/>
+ 
+</launch>
